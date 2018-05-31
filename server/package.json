@@ -4,6 +4,9 @@
   "main": "index.js",
   "author": "Sam Zhao <zhao.shengjun@gmail.com> (https://samzhao.gitlab.io)",
   "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./index.js --exec babel-node -e js"
+  },
   "dependencies": {
     "body-parser": "1.18.3",
     "cors": "2.8.4",
