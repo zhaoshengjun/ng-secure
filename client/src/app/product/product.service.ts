@@ -1,3 +1,4 @@
+import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Product } from "./product";
@@ -14,23 +15,26 @@ const httpOptions = {
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  getProducts() {
-    return this.http.get(API_URL);
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(API_URL);
   }
 
-  getProduct(id: number) {
-    return this.http.get(API_URL + "/" + id.toString());
+  getProduct(id: number): Observable<Product> {
+    return this.http.get<Product>(API_URL + "/" + id.toString());
   }
 
-  addProduct(entity: Product) {
-    return this.http.post(API_URL, entity, httpOptions);
+  addProduct(entity: Product): Observable<Product> {
+    return this.http.post<Product>(API_URL, entity, httpOptions);
   }
 
-  updateProduct(entity: Product) {
-    return this.http.put(API_URL, entity, httpOptions);
+  updateProduct(entity: Product): Observable<Product> {
+    return this.http.put<Product>(API_URL, entity, httpOptions);
   }
 
-  deleteProduct(id: number) {
-    return this.http.delete(API_URL + "/" + id.toString(), httpOptions);
+  deleteProduct(id: number): Observable<Product> {
+    return this.http.delete<Product>(
+      API_URL + "/" + id.toString(),
+      httpOptions
+    );
   }
 }
