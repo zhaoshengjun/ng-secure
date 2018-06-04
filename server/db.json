@@ -1,0 +1,74 @@
+{
+  "category": [
+    {
+      "categoryId": 1,
+      "categoryName": "Service"
+    },
+    {
+      "categoryId": 2,
+      "categoryName": "Training"
+    },
+    {
+      "categoryId": 3,
+      "categoryName": "Information"
+    }
+  ],
+  "product": [
+    {
+      "productId": 1,
+      "productName": "SQL Server Naming Standards",
+      "introductionDate": "2015-02-01T00:00:00.000",
+      "price": 1,
+      "url": "http://www.pdsa.com/downloads",
+      "categoryId": 3
+    },
+    {
+      "productId": 3,
+      "productName": "VB.NET Development Standards",
+      "introductionDate": "2015-04-01T00:00:00.000",
+      "price": 22,
+      "url": "http://www.pdsa.com/downloads",
+      "categoryId": 3
+    },
+    {
+      "productId": 1,
+      "productName": "VS.NET Standards",
+      "introductionDate": "2015-06-01T00:00:00.000",
+      "price": 22,
+      "url": "http://www.pdsa.com/downloads",
+      "categoryId": 3
+    },
+    {
+      "productId": 1,
+      "productName": "PDSA Application Security Audit",
+      "introductionDate": "2015-08-01T00:00:00.000",
+      "price": 2000,
+      "url": "http://www.pdsa.com/downloads",
+      "categoryId": 1
+    },
+    {
+      "productId": 1,
+      "productName": "PDSA SQL Server and Database Design Audit",
+      "introductionDate": "2015-02-01T00:00:00.000",
+      "price": 2000,
+      "url": "http://www.pdsa.com/downloads",
+      "categoryId": 1
+    },
+    {
+      "productId": 1,
+      "productName": "The Journey from MVC to Angular",
+      "introductionDate": "2013-09-12T00:00:00.000",
+      "price": 10,
+      "url": "http://www.pdsa.com/downloads",
+      "categoryId": 2
+    },
+    {
+      "productId": 1,
+      "productName": "How to Start and Run A Consulting Business",
+      "introductionDate": "2015-02-01T00:00:00.000",
+      "price": 1,
+      "url": "http://www.pdsa.com/downloads",
+      "categoryId": 3
+    }
+  ]
+}
