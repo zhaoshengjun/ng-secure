@@ -1,3 +1,4 @@
+import { LoginComponent } from "./security/login.component";
 import { CategoryListComponent } from "./category-list/category-list.component";
 import { ProductDetailComponent } from "./product/product-detail.component";
 import { ProductListComponent } from "./product/product-list.component";
@@ -6,6 +7,7 @@ import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
 const routes: Routes = [
+  { path: "login", component: LoginComponent },
   { path: "dashboard", component: DashboardComponent },
   { path: "products", component: ProductListComponent },
   { path: "productDetail/:id", component: ProductDetailComponent },
