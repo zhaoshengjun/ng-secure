@@ -37,4 +37,8 @@ export class SecurityService {
       localStorage.setItem("bearerToken", this.securityObject.bearerToken);
     }
   }
+
+  logout() {
+    this.resetSecurityObject();
+  }
 }

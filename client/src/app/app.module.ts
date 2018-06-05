@@ -9,6 +9,7 @@ import { CategoryListComponent } from "./category-list/category-list.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProductListComponent } from "./product/product-list.component";
 import { ProductDetailComponent } from "./product/product-detail.component";
+import { LoginComponent } from './security/login.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ProductDetailComponent } from "./product/product-detail.component";
     CategoryListComponent,
     DashboardComponent,
     ProductListComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    LoginComponent
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [],
