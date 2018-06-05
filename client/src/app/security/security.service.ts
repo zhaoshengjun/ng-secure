@@ -1,3 +1,4 @@
+import { Observable, of } from "rxjs";
 import { LOGIN_MOCKS } from "./login-mocks";
 import { AppUserAuth } from "./app-user-auth";
 import { Injectable } from "@angular/core";
@@ -25,7 +26,7 @@ export class SecurityService {
     localStorage.removeItem("bearerToken");
   }
 
-  login(entity: AppUser) {
+  login(entity: AppUser): Observable<AppUserAuth> {
     this.resetSecurityObject();
     Object.assign(
       this.securityObject,
@@ -36,6 +37,8 @@ export class SecurityService {
     if (this.securityObject.userName !== "") {
       localStorage.setItem("bearerToken", this.securityObject.bearerToken);
     }
+
+    return of<AppUserAuth>(this.securityObject);
   }
 
   logout() {
