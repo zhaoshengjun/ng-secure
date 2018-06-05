@@ -5,7 +5,8 @@
   "author": "Sam Zhao <zhao.shengjun@gmail.com> (https://samzhao.gitlab.io)",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon ./index.js --exec babel-node -e js"
+    "dev": "nodemon ./index.js --exec babel-node -e js",
+    "start": "json-server db.json --port 5000"
   },
   "dependencies": {
     "body-parser": "1.18.3",
