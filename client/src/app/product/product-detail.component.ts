@@ -1,3 +1,5 @@
+import { SecurityService } from "./../security/security.service";
+import { AppUserAuth } from "./../security/app-user-auth";
 import { ProductService } from "./product.service";
 import { Component, OnInit } from "@angular/core";
 import { Product } from "./product";
@@ -15,13 +17,17 @@ export class ProductDetailComponent implements OnInit {
   product: Product;
   originalProduct: Product;
   categories: Category[];
+  securityObject: AppUserAuth;
 
   constructor(
     private categoryService: CategoryService,
     private proudctService: ProductService,
     private route: ActivatedRoute,
+    private securityService: SecurityService,
     private location: Location
-  ) {}
+  ) {
+    this.securityObject = securityService.securityObject;
+  }
 
   ngOnInit() {
     this.getCategories();
