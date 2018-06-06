@@ -1,3 +1,5 @@
+import { SecurityService } from "./../security/security.service";
+import { AppUserAuth } from "./../security/app-user-auth";
 import { CategoryService } from "./category.service";
 import { Component, OnInit } from "@angular/core";
 import { Category } from "./category";
@@ -9,7 +11,13 @@ import { Category } from "./category";
 })
 export class CategoryListComponent implements OnInit {
   categories: Category[];
-  constructor(private categoryService: CategoryService) {}
+  securityObject: AppUserAuth;
+  constructor(
+    private categoryService: CategoryService,
+    private securityService: SecurityService
+  ) {
+    this.securityObject = securityService.securityObject;
+  }
 
   ngOnInit() {
     this.getCategories();
