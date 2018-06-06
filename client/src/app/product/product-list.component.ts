@@ -2,6 +2,8 @@ import { ProductService } from "./product.service";
 import { Component, OnInit } from "@angular/core";
 import { Product } from "./product";
 import { Router } from "@angular/router";
+import { AppUserAuth } from "../security/app-user-auth";
+import { SecurityService } from "../security/security.service";
 
 @Component({
   selector: "app-product-list",
@@ -10,8 +12,15 @@ import { Router } from "@angular/router";
 })
 export class ProductListComponent implements OnInit {
   products: Product[];
+  securityObject: AppUserAuth = null;
 
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(
+    private productService: ProductService,
+    private router: Router,
+    private securityService: SecurityService
+  ) {
+    this.securityObject = securityService.securityObject;
+  }
 
   ngOnInit() {
     this.getProducts();
