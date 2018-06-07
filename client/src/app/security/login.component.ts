@@ -1,3 +1,4 @@
+import { ActivatedRoute, Router } from "@angular/router";
 import { SecurityService } from "./security.service";
 import { AppUserAuth } from "./app-user-auth";
 import { Component, OnInit } from "@angular/core";
@@ -11,13 +12,24 @@ import { AppUser } from "./app-user";
 export class LoginComponent implements OnInit {
   securityObject: AppUserAuth = null;
   user: AppUser = new AppUser();
-  constructor(private securityService: SecurityService) {}
+  returnUrl: string;
 
-  ngOnInit() {}
+  constructor(
+    private securityService: SecurityService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
+
+  ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParamMap.get("returnUrl");
+  }
 
   login() {
-    this.securityService
-      .login(this.user)
-      .subscribe(resp => (this.securityObject = resp));
+    this.securityService.login(this.user).subscribe(resp => {
+      this.securityObject = resp;
+      if (this.returnUrl) {
+        this.router.navigateByUrl(this.returnUrl);
+      }
+    });
   }
 }
