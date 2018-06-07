@@ -25,11 +25,16 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.securityService.login(this.user).subscribe(resp => {
-      this.securityObject = resp;
-      if (this.returnUrl) {
-        this.router.navigateByUrl(this.returnUrl);
+    this.securityService.login(this.user).subscribe(
+      resp => {
+        this.securityObject = resp;
+        if (this.returnUrl) {
+          this.router.navigateByUrl(this.returnUrl);
+        }
+      },
+      () => {
+        this.securityObject = new AppUserAuth();
       }
-    });
+    );
   }
 }
