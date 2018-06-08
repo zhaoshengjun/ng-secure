@@ -45,4 +45,32 @@ export class SecurityService {
   logout() {
     this.resetSecurityObject();
   }
+
+  private isClaimValid(claimType: string, claimValue?: string): boolean {
+    let ret: boolean = false;
+    let auth: AppUserAuth = null;
+
+    auth = this.securityObject;
+    if (auth) {
+      if (claimType.indexOf(":") >= 0) {
+        let words: string[] = claimType.split(":");
+        claimType = words[0].toLowerCase();
+        claimValue = words[1];
+      } else {
+        claimType = claimType.toLowerCase();
+        claimValue = claimValue ? claimValue : "true";
+      }
+
+      ret =
+        auth.claims.find(
+          c =>
+            c.claimType.toLowerCase() == claimType && c.claimValue == claimValue
+        ) != null;
+    }
+    return ret;
+  }
+
+  hasClaim(claimType: any, claimValue?: any) {
+    return this.isClaimValid(claimType, claimValue);
+  }
 }
