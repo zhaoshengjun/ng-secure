@@ -14,11 +14,10 @@ const httpOptions = {
   providedIn: "root"
 })
 export class ProductService {
-  constructor(private http: HttpClient, private securityService: SecurityService) {}
+  constructor(private http: HttpClient) {}
 
   getProducts(): Observable<Product[]> {
-    let httpOptions = new HttpHeaders().set('Authorization', 'Bearer' + this.securityService.securityObject.bearerToken)
-    return this.http.get<Product[]>(API_URL, {headers: httpOptions});
+    return this.http.get<Product[]>(API_URL);
   }
 
   getProduct(id: number): Observable<Product> {
