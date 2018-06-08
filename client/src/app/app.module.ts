@@ -1,3 +1,4 @@
+import { HttpInterceptorModule } from "./security/http-interceptor";
 import { AppRoutingModule } from "./app-routing.module";
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
@@ -9,7 +10,7 @@ import { CategoryListComponent } from "./category-list/category-list.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProductListComponent } from "./product/product-list.component";
 import { ProductDetailComponent } from "./product/product-detail.component";
-import { LoginComponent } from './security/login.component';
+import { LoginComponent } from "./security/login.component";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,13 @@ import { LoginComponent } from './security/login.component';
     ProductDetailComponent,
     LoginComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    HttpInterceptorModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
