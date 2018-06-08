@@ -71,6 +71,27 @@ export class SecurityService {
   }
 
   hasClaim(claimType: any, claimValue?: any) {
-    return this.isClaimValid(claimType, claimValue);
+    let ret = false;
+
+    if (typeof claimType === "string") {
+      // this should handle:
+      //  *hasClaim="'claimType'"
+      //  *hasClaim="'claimType:claimValue'"
+      return this.isClaimValid(claimType, claimValue);
+    } else {
+      // This shoudl handle
+      //  *hasClaim="['claimType', 'claimType:value','claimType']"
+      let claims: string[] = claimType;
+      if (claims) {
+        for (let index = 0; index < claims.length; index++) {
+          ret = this.isClaimValid(claims[index]);
+          // if one is true, then let it pass
+          if (ret) {
+            break;
+          }
+        }
+      }
+    }
+    return ret;
   }
 }
