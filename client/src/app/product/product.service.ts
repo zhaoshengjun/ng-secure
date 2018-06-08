@@ -1,3 +1,4 @@
+import { SecurityService } from "./../security/security.service";
 import { Observable } from "rxjs";
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
@@ -13,10 +14,11 @@ const httpOptions = {
   providedIn: "root"
 })
 export class ProductService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private securityService: SecurityService) {}
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(API_URL);
+    let httpOptions = new HttpHeaders().set('Authorization', 'Bearer' + this.securityService.securityObject.bearerToken)
+    return this.http.get<Product[]>(API_URL, {headers: httpOptions});
   }
 
   getProduct(id: number): Observable<Product> {
