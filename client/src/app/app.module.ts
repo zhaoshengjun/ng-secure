@@ -11,6 +11,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProductListComponent } from "./product/product-list.component";
 import { ProductDetailComponent } from "./product/product-detail.component";
 import { LoginComponent } from "./security/login.component";
+import { HasClaimDirective } from './security/has-claim.directive';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from "./security/login.component";
     DashboardComponent,
     ProductListComponent,
     ProductDetailComponent,
-    LoginComponent
+    LoginComponent,
+    HasClaimDirective
   ],
   imports: [
     BrowserModule,
